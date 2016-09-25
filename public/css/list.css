@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+.listTable td:first-of-type {
+  width: 10%;
+}
+.listTable td {
+vertical-align: middle;
+}
