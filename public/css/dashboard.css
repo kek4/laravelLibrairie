@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+.bookSession{
+   position: absolute;
+    bottom: 0;
+    background-color: rgba(120, 120, 120, 0.50);
+    color: #FFF;
+}
+.bookSession div div img{
+   width: 100%;
+   height: auto;
+}

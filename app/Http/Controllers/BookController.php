@@ -24,7 +24,7 @@ class BookController extends Controller
    * Liste des livres retournée en JSON
    */
   public function listJson(){
-    $list = Book::all();
+    $list = Book::getBookWithAuthor();
     return $list->toJson();
   }
 
@@ -69,5 +69,42 @@ class BookController extends Controller
     }
     return view('book/add', ['authors' => $authors]);
   }
+
+   /**
+    * Delete a book
+    * @param  Article $id [description]
+    * @return [type]      [description]
+    */
+     public function delete(Book $book){
+
+      $book->delete();
+      return $this->listJson();
+   }
+
+   /**
+    * Push in a session books seen by user
+    * @param  Book    $id      [description]
+    * @param  Request $request [description]
+    * @return [type]           [description]
+    */
+   public function viewed(Book $book, Request $request){
+
+      if (!$request->session()->has('viewed')) {
+         $arrayViewed = [];
+         $request->session()->put('viewed', $arrayViewed);
+      }else{
+      $arrayViewed = $request->session()->get('viewed');
+      }
+      if (!in_array($book->id, $arrayViewed)) {
+         array_push($arrayViewed, $book->id);
+      }
+
+      $request->session()->put('viewed', $arrayViewed);
+      $name = Book::find($book->id)->author->name;
+      $firstname = Book::find($book->id)->author->firstname;
+      return view('book/viewed', ['book' => $book, 'name' => $name, 'firstname' => $firstname]);
+
+   }
+
 
  }

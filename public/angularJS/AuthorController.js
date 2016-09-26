@@ -1,10 +1,18 @@
 app.controller('AuthorController', function AuthorController($scope, $http) {
 
-  // Récupère la list des b
-  $http.get('author-listJson').then(function(response){
-    console.log(response);
-    $scope.authorBook = response.data;
+  // Get list of author in JSON
+  $http.get('/author/author-listJson').then(function(response){
+    $scope.listAuthor = response.data;
   });
+
+  // delete an author with his id
+  $scope.deleteAuthor = function(id){
+        $http.get('/author/delete/'+id).then(function(response){
+         $scope.listAuthor = response.data;
+        });
+        toastr.success("(ainsi que tout ses livres...) ", "Auteur supprimé !");
+  }
+
 
 
 });
