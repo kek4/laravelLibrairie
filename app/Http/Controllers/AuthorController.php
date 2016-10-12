@@ -32,12 +32,12 @@ class AuthorController extends Controller
   public function add(Request $request){
 
     $validator = Validator::make($request->all(), [
-    'name' => 'required|regex:/[a-z\-\ ]{3,}/i|unique:book',
-    'firstname' => ['required','regex:/^[0-9]+[,.][0-9]{2}$/i'],
+    'name' => 'required',
+    'firstname' => 'required',
     'picture' => ['required','active_url'],
     'city' => 'required',
-    'literarymovement' => 'required',
-    'biographie' => 'required',
+    'category' => 'required',
+    'biography' => 'required',
     'birthday' => 'required|date_format:d-m-Y',
     'deathday' => 'date_format:d-m-Y',
     'gender' => 'required|in:1,0',
@@ -59,8 +59,8 @@ class AuthorController extends Controller
        $author->firstname = $request->firstname;
        $author->picture = $request->picture;
        $author->city = $request->city;
-       $author->literarymovement = $request->literarymovement;
-       $author->biographie = $request->biographie;
+       $author->category = $request->category;
+       $author->biography = $request->biography;
        $author->birthday = Carbon::parse($request->birthday);
        $author->deathday = Carbon::parse($request->deathday);
        $author->gender = $request->gender;
@@ -69,4 +69,16 @@ class AuthorController extends Controller
     }
     return view('author/add');
   }
+
+  /**
+   * Delete an author
+   * @param  Article $id [description]
+   * @return [type]      [description]
+   */
+    public function delete(Author $id){
+
+     $id->delete();
+     return $this->listJson();
+  }
+
 }

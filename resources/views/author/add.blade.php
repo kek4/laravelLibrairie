@@ -85,12 +85,12 @@
                 @endif
               </div>
             </div>
-            <div class="control-group @if($errors->has('literarymovement')) has-warning @elseif(count($errors) > 0) has-success @endif">
+            <div class="control-group @if($errors->has('category')) has-warning @elseif(count($errors) > 0) has-success @endif">
               <label class="control-label">Catégorie de livre :</label>
               <div class="controls">
-                <input class="span11" type="text" id="literarymovement" name="literarymovement" value="{{ old('literarymovement') }}">
-                @if($errors->has('literarymovement'))
-                  <span class="help-block">{{ $errors->first('literarymovement')}}</span>
+                <input class="span11" type="text" id="category" name="category" value="{{ old('category') }}">
+                @if($errors->has('category'))
+                  <span class="help-block">{{ $errors->first('category')}}</span>
                 @endif
               </div>
             </div>
@@ -117,9 +117,9 @@
                   </div>
                 </div>
                 <div class="control-group @if($errors->has('biography')) has-warning @elseif(count($errors) > 0) has-success @endif">
-                  <label class="control-label">Message</label>
+                  <label class="control-label">Biographie</label>
                   <div class="controls">
-                    <textarea class="span11" value="{{ old('biography') }}"></textarea>
+                    <textarea class="span11" value="{{ old('biography') }}" name="biography" id="biography"></textarea>
                     @if($errors->has('biography'))
                       <span class="help-block">{{ $errors->first('biography')}}</span>
                     @endif

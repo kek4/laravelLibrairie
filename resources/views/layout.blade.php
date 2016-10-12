@@ -10,11 +10,14 @@
   <link rel="stylesheet" href="{{ asset('css/fullcalendar.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/matrix-style.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/matrix-media.css') }}" />
-  <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
+  {{-- <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet" /> --}}
   <link rel="stylesheet" href="{{ asset('css/jquery.gritter.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/datepicker.css') }}" />
+  <link rel="stylesheet" href="{{ asset('/bower_components/owl.carousel/dist/assets/owl.carousel.min.css') }}" />
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+
   @show
 </head>
 <body>
@@ -28,10 +31,12 @@
 
   @include('partials/_footer')
 
-   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-   <script src="{{ asset('angularJS/AppController.js') }}"></script>
+@section('js')
   <script src="{{ asset('js/excanvas.min.js') }}"></script>
   <script src="{{ asset('js/jquery.min.js') }}"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  <script src="{{ asset('angularJS/AppController.js') }}"></script>
   <script src="{{ asset('js/jquery.ui.custom.js') }}"></script>
   <script src="{{ asset('js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('js/jquery.flot.min.js') }}"></script>
@@ -52,9 +57,12 @@
   <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
   <script src="{{ asset('js/matrix.tables.js') }}"></script>
   <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <script src="{{ asset('/bower_components/owl.carousel/dist/owl.carousel.min.js') }}"></script>
 
-  @section('js')
+
+
+
+
   @show
 
 

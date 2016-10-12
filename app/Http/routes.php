@@ -23,6 +23,8 @@ Route::group(['prefix' => 'book'], function(){
    Route::get('/list', 'BookController@toList')->name('book.list');
    Route::get('/book-listJson', 'BookController@listJson')->name('book.listJson');
    Route::any('/add', 'BookController@add')->name('book.add');
+   Route::get('/delete/{book}', 'BookController@delete')->name('book.delete');
+   Route::any('/viewed/{book}', 'BookController@viewed')->name('book.viewed');
 });
 
 /**
@@ -32,4 +34,5 @@ Route::group(['prefix' => 'author'], function(){
    Route::get('/list', 'AuthorController@toList')->name('author.list');
    Route::get('/author-listJson', 'AuthorController@listJson')->name('author.listJson');
    Route::any('/add', 'AuthorController@add')->name('author.add');
+   Route::get('/delete/{id}', 'AuthorController@delete')->name('author.delete');
 });
